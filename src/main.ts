@@ -90,8 +90,10 @@ const btn = document.querySelector('.btn')!;
 btn.addEventListener('click', () => {
     if (document.documentElement.requestFullscreen) {
         document.documentElement.requestFullscreen();
+        // @ts-ignore
     } else if (document.documentElement.webkitRequestFullscreen) {
         /* Safari */
+        // @ts-ignore
         document.documentElement.webkitRequestFullscreen();
     }
     setToLandScape();
