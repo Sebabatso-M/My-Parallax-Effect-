@@ -56,3 +56,43 @@ window.addEventListener('mousemove', (e: MouseEvent) => {
         rotateY(${rotateDegree * rRate}deg)`;
     });
 });
+
+// Check if the device is a tablet
+function isTablet(userAgent: string) {
+    const isTablet =
+        /(ipad|android(?!.*mobile)|tablet|kindle)|(windows(?!.*phone)(.*touch))/.test(
+            userAgent
+        );
+    return isTablet;
+}
+
+// Check if the device is a mobile
+function isMobile(userAgent: string) {
+    const isMobile = /(android|iphone|ipod|windows phone)/.test(userAgent);
+    return isMobile;
+}
+
+function setToLandScape() {
+    const ua = navigator.userAgent.toLowerCase();
+
+    if (isTablet(ua) || isMobile(ua)) {
+        screen.orientation
+            .lock('landscape')
+            .then(() => alert('success'))
+            .catch((err) => alert(err));
+    }
+}
+
+window.addEventListener('load', () => {});
+
+const btn = document.querySelector('.btn')!;
+
+btn.addEventListener('click', () => {
+    if (document.documentElement.requestFullscreen) {
+        document.documentElement.requestFullscreen();
+    } else if (document.documentElement.webkitRequestFullscreen) {
+        /* Safari */
+        document.documentElement.webkitRequestFullscreen();
+    }
+    setToLandScape();
+});
