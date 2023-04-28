@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 img {
-    @apply absolute duration-500 pointer-events-none -bottom-8 aspect-video;
+    @apply absolute w-full h-full duration-500 pointer-events-none;
     transition-timing-function: cubic-bezier(0.1, 0.66, 0.28, 0.86);
 }
 
