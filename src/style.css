@@ -9,4 +9,10 @@ img {
 
 section {
     perspective: 2300px;
+    @apply bg-blue-900 bg-opacity-70;
+}
+
+body {
+    /* min-width: 100vw;
+    min-height: 100vh; */
 }

@@ -3,7 +3,7 @@ import Lenis from '@studio-freight/lenis';
 
 const lenis = new Lenis();
 
-function raf(time: any) {
+function raf(time: number) {
     lenis.raf(time);
     requestAnimationFrame(raf);
 }
@@ -56,3 +56,59 @@ window.addEventListener('mousemove', (e: MouseEvent) => {
         rotateY(${rotateDegree * rRate}deg)`;
     });
 });
+
+const imagesContainers = document.querySelectorAll('.imagesContainer');
+
+// checks if device is in portrait mode
+const isPortrait = window.matchMedia('(orientation: portrait)').matches;
+
+window.addEventListener('resize', () => {
+    imagesContainers.forEach((container) => {
+        const section = container as HTMLElement;
+
+        if ((isMobile() || isTablet()) && isPortrait) {
+            // had to set this implicitly so that top stylings for section can take effect
+            document.body.style.width = `100vw`;
+            document.body.style.height = `100vh`;
+
+            section.style.width = `100vh`;
+            section.style.height = `100vw`;
+
+            section.style.transformOrigin = `center`;
+            section.style.left = `50%`;
+            section.style.top = `50%`;
+            section.style.transform = `translate(-50%,-50%) rotate(90deg)`;
+        }
+    });
+});
+
+// when device is rotated, check if its in landscape
+// if in landscape then remove the inline css added using javascript
+window
+    .matchMedia('(orientation: landscape)')
+    .addEventListener('change', (e: MediaQueryListEvent) => {
+        const isLandscape = e.matches;
+        imagesContainers.forEach((container) => {
+            const section = container as HTMLElement;
+            if (isLandscape) {
+                section.removeAttribute('style');
+            }
+        });
+    });
+
+// Check if the device is a tablet
+function isTablet() {
+    const ua = navigator.userAgent.toLowerCase();
+    const isTablet =
+        /(ipad|android(?!.*mobile)|tablet|kindle)|(windows(?!.*phone)(.*touch))/.test(
+            ua
+        );
+    return isTablet;
+}
+
+// Check if the device is a mobile
+function isMobile() {
+    const ua = navigator.userAgent.toLowerCase();
+    const isMobile = /(android|iphone|ipod|windows phone)/.test(ua);
+    return isMobile;
+}

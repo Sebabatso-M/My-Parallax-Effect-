@@ -9,8 +9,10 @@
 
         <title>My Parallax</title>
     </head>
-    <body class="">
-        <section class="relative w-full h-screen overflow-hidden">
+    <body class="relative">
+        <section
+            class="relative w-full h-screen overflow-hidden imagesContainer"
+        >
             <img
                 class="z-0 parallax"
                 src="./one piece-assets/lowfi/bg.png"
@@ -67,8 +69,12 @@
                 data-speedz="0.5"
                 data-rotate="0.5"
             />
+
+            <div
+                class="overlay h-full w-full bg-opacity-[0.05] bg-blue-900 z-[60] absolute"
+            ></div>
         </section>
 
-        <!-- <section class="h-screen"></section> -->
+        <!-- <section class="h-screen imagesContainer"></section> -->
     </body>
 </html>
