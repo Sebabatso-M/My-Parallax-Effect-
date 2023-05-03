@@ -62,7 +62,9 @@ const imagesContainers = document.querySelectorAll('.imagesContainer');
 // checks if device is in portrait mode
 const isPortrait = window.matchMedia('(orientation: portrait)').matches;
 
-window.addEventListener('resize', () => {
+window.addEventListener('resize', setLandscape);
+
+function setLandscape() {
     imagesContainers.forEach((container) => {
         const section = container as HTMLElement;
 
@@ -80,21 +82,29 @@ window.addEventListener('resize', () => {
             section.style.transform = `translate(-50%,-50%) rotate(90deg)`;
         }
     });
-});
+}
 
 // when device is rotated, check if its in landscape
 // if in landscape then remove the inline css added using javascript
 window
     .matchMedia('(orientation: landscape)')
     .addEventListener('change', (e: MediaQueryListEvent) => {
-        const isLandscape = e.matches;
-        imagesContainers.forEach((container) => {
-            const section = container as HTMLElement;
-            if (isLandscape) {
-                section.removeAttribute('style');
-            }
-        });
+        resetForLandscape(e.matches);
     });
+
+function resetForLandscape(matches: boolean) {
+    const isLandscape = matches;
+    imagesContainers.forEach((container) => {
+        const section = container as HTMLElement;
+        if (isLandscape) {
+            section.removeAttribute('style');
+        }
+    });
+}
+
+window.addEventListener('load', () => {
+    setLandscape();
+});
 
 // Check if the device is a tablet
 function isTablet() {
