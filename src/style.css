@@ -16,3 +16,12 @@ body {
     /* min-width: 100vw;
     min-height: 100vh; */
 }
+
+@font-face {
+    font-family: bloodCrow;
+    src: url('../assets/blood-crow.ttf');
+}
+@font-face {
+    font-family: onePiece;
+    src: url('../assets/one\ piece\ font.ttf');
+}
