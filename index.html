@@ -29,15 +29,21 @@
                 data-speedz="0.08"
                 data-rotate="0.1"
             />
-            <h1
-                class="font-onePiece xl:text-[12rem] md:text-9xl text-8xl absolute z-10 bonus left-1/2 top-3 -translate-x-1/2 parallax first-letter"
+            <!-- Put text in a container so i can properly align it in the center -->
+            <!-- without the container, text alignment is overwritten by styling added through javascript, messing up the layout -->
+            <div
+                class="absolute z-10 w-full h-full textContainer parallax"
                 data-speedx="0.02"
                 data-speedy="0.02"
                 data-speedz="0.2"
                 data-rotate="0.2"
             >
-                One Piece
-            </h1>
+                <h1
+                    class="font-onePiece xl:text-[12rem] absolute md:text-9xl text-8xl bonus left-1/2 top-3 -translate-x-1/2"
+                >
+                    One Piece
+                </h1>
+            </div>
             <img
                 class="z-20 parallax backdrop-blur-[0.2px]"
                 src="./assets/one piece-assets/lowfi/jimbe x choppai.png"
