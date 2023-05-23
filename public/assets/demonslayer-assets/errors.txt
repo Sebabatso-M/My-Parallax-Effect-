@@ -1,0 +1,1 @@
+[2023/05/23, 00:44:08] layer "tanjiro_nez.png copy": Expected end of input but "c" found.

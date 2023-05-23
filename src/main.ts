@@ -1,5 +1,5 @@
 // @ts-ignore
-import Lenis from '@studio-freight/lenis';
+/* import Lenis from '@studio-freight/lenis';
 
 const lenis = new Lenis();
 
@@ -8,7 +8,7 @@ function raf(time: number) {
     requestAnimationFrame(raf);
 }
 
-requestAnimationFrame(raf);
+requestAnimationFrame(raf); */
 
 const parallaxImgs = document.querySelectorAll('.parallax');
 
@@ -18,6 +18,25 @@ let yValue = 0;
 let zValue = 0;
 
 let rotateDegree = 0;
+
+// used to set whether images should move based on mouse movement
+let followMouseMovement = false;
+
+const imagesContainers = document.querySelectorAll('.imagesContainer');
+
+// change the followMouseMovement attr in order to use for determining if whether images should move based on mouse movement
+imagesContainers.forEach((imageContainer) => {
+    const section = <HTMLElement>imageContainer;
+
+    section.addEventListener('mouseenter', () => {
+        section.dataset.followmousemovement = 'true';
+    });
+    section.addEventListener('mouseleave', () => {
+        section.dataset.followmousemovement = 'false';
+    });
+});
+
+window.addEventListener('scroll', () => (followMouseMovement = false));
 
 window.addEventListener('mousemove', (e: MouseEvent) => {
     // assign cursor coordinates to respective x and y value
@@ -43,21 +62,35 @@ window.addEventListener('mousemove', (e: MouseEvent) => {
 
     parallaxImgs.forEach((element) => {
         const image = <HTMLImageElement>element;
+        const parentElement = image.parentElement;
 
         const xRate = parseFloat(image.dataset.speedx!);
         const yRate = parseFloat(image.dataset.speedy!);
         const zRate = parseFloat(image.dataset.speedz!);
         const rRate = parseFloat(image.dataset.rotate!);
 
-        image.style.transform = `
+        // used to set whether images should move based on mouse movement
+        const followMouseMovement =
+            parentElement?.dataset.followmousemovement === 'true'
+                ? true
+                : false;
+
+        if (followMouseMovement) {
+            image.style.transform = `
         translateX(${xValue * xRate}px) 
         translateY(${yValue * yRate}px) 
         translateZ(${zValue * zRate}px)
         rotateY(${rotateDegree * rRate}deg)`;
+        } else {
+            // reset image transformations
+            image.style.transform = `
+        translateX(${0}px) 
+        translateY(${0}px) 
+        translateZ(${0}px)
+        rotateY(${0}deg)`;
+        }
     });
 });
-
-const imagesContainers = document.querySelectorAll('.imagesContainer');
 
 // checks if device is in portrait mode
 const isPortrait = window.matchMedia('(orientation: portrait)').matches;
@@ -101,10 +134,9 @@ function resetForLandscape(matches: boolean) {
         }
     });
 }
-
-window.addEventListener('load', () => {
-    setLandscape();
-});
+setLandscape();
+// working on loader
+window.addEventListener('load', () => {});
 
 // Check if the device is a tablet
 function isTablet() {

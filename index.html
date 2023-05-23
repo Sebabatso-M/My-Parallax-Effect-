@@ -5,92 +5,228 @@
         <link rel="icon" type="image/svg+xml" href="/vite.svg" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./src/style.css" />
+        <script type="module" defer src="/src/gsapAnims.ts"></script>
         <script type="module" defer src="/src/main.ts"></script>
 
         <title>My Parallax</title>
     </head>
     <body class="relative">
-        <section
-            class="relative w-full h-screen overflow-hidden imagesContainer"
-        >
-            <img
-                class="z-0 parallax"
-                src="./assets/one piece-assets/lowfi/bg.png"
-                data-speedx="0.001"
-                data-speedy="0"
-                data-speedz="0.1"
-                data-rotate="0"
-            />
-            <img
-                class="z-10 parallax"
-                src="./assets/one piece-assets/lowfi/franky.png"
-                data-speedx="0.005"
-                data-speedy="0.007"
-                data-speedz="0.08"
-                data-rotate="0.1"
-            />
-            <!-- Put text in a container so i can properly align it in the center -->
-            <!-- without the container, text alignment is overwritten by styling added through javascript, messing up the layout -->
-            <div
-                class="absolute z-10 w-full h-full textContainer parallax"
-                data-speedx="0.02"
-                data-speedy="0.02"
-                data-speedz="0.2"
-                data-rotate="0.2"
+        <div class="cont">
+            <!-- One Piece 1 -->
+            <section
+                id="cont1"
+                class="relative h-screen overflow-hidden imagesContainer"
+                data-followMouseMovement="false"
             >
-                <h1
-                    class="font-onePiece xl:text-[12rem] absolute md:text-9xl text-8xl bonus left-1/2 top-3 -translate-x-1/2"
+                <img
+                    class="z-0 parallax"
+                    src="./assets/one piece-assets/lowfi/bg.png"
+                    data-speedx="0.001"
+                    data-speedy="0"
+                    data-speedz="0.1"
+                    data-rotate="0"
+                />
+                <img
+                    class="z-10 parallax"
+                    src="./assets/one piece-assets/lowfi/franky.png"
+                    data-speedx="0.005"
+                    data-speedy="0.007"
+                    data-speedz="0.08"
+                    data-rotate="0.1"
+                />
+                <!-- Put text in a container so i can properly align it in the center -->
+                <!-- without the container, text alignment is overwritten by styling added through javascript, messing up the layout -->
+                <div
+                    class="absolute z-10 w-full h-full textContainer parallax"
+                    data-speedx="0.02"
+                    data-speedy="0.02"
+                    data-speedz="0.2"
+                    data-rotate="0.2"
                 >
-                    One Piece
-                </h1>
-            </div>
-            <img
-                class="z-20 parallax backdrop-blur-[0.2px]"
-                src="./assets/one piece-assets/lowfi/jimbe x choppai.png"
-                data-speedx="0.006"
-                data-speedy="0.008"
-                data-speedz="0.1"
-                data-rotate="0.1"
-            />
-            <img
-                class="z-20 parallax"
-                src="./assets/one piece-assets/lowfi/robin.png"
-                data-speedx="0.008"
-                data-speedy="0.01"
-                data-speedz="0.15"
-                data-rotate="0.2"
-            />
+                    <h1
+                        class="font-onePiece xl:text-[12rem] absolute md:text-9xl text-8xl bonus left-1/2 top-3 -translate-x-1/2"
+                    >
+                        One Piece
+                    </h1>
+                </div>
+                <img
+                    class="z-20 parallax backdrop-blur-[0.2px]"
+                    src="./assets/one piece-assets/lowfi/jimbe x choppai.png"
+                    data-speedx="0.006"
+                    data-speedy="0.008"
+                    data-speedz="0.1"
+                    data-rotate="0.1"
+                />
+                <img
+                    class="z-20 parallax"
+                    src="./assets/one piece-assets/lowfi/robin.png"
+                    data-speedx="0.008"
+                    data-speedy="0.01"
+                    data-speedz="0.15"
+                    data-rotate="0.2"
+                />
 
-            <img
-                class="z-30 parallax backdrop-blur-[0.2px]"
-                src="./assets/one piece-assets/lowfi/ussop x sanji.png"
-                data-speedx="0.01"
-                data-speedy="0.01"
-                data-speedz="0.15"
-                data-rotate="0.2"
-            />
-            <img
-                class="z-40 parallax backdrop-blur-[0.2px]"
-                src="./assets/one piece-assets/lowfi/zoro.png"
-                data-speedx="0.02"
-                data-speedy="0.02"
-                data-speedz="0.2"
-                data-rotate="0.2"
-            />
-            <img
-                class="z-50 parallax"
-                src="./assets/one piece-assets/lowfi/lufffy.png"
-                data-speedx="0.04"
-                data-speedy="0.05"
-                data-speedz="0.5"
-                data-rotate="0.5"
-            />
+                <img
+                    class="z-30 parallax backdrop-blur-[0.2px]"
+                    src="./assets/one piece-assets/lowfi/ussop x sanji.png"
+                    data-speedx="0.01"
+                    data-speedy="0.01"
+                    data-speedz="0.15"
+                    data-rotate="0.2"
+                />
+                <img
+                    class="z-40 parallax backdrop-blur-[0.2px]"
+                    src="./assets/one piece-assets/lowfi/zoro.png"
+                    data-speedx="0.02"
+                    data-speedy="0.02"
+                    data-speedz="0.2"
+                    data-rotate="0.2"
+                />
+                <img
+                    class="z-50 parallax"
+                    src="./assets/one piece-assets/lowfi/lufffy.png"
+                    data-speedx="0.04"
+                    data-speedy="0.05"
+                    data-speedz="0.5"
+                    data-rotate="0.5"
+                />
 
-            <div
-                class="overlay h-full w-full bg-opacity-[0.05] bg-blue-900 z-[60] absolute"
-            ></div>
-        </section>
+                <div
+                    class="overlay h-full w-full bg-opacity-[0.05] bg-blue-900 z-[60] absolute"
+                ></div>
+            </section>
+            <!-- Demon Slayer -->
+            <section
+                class="relative h-screen overflow-hidden imagesContainer cont2"
+                id="cont2"
+            >
+                <img
+                    class="parallax backdrop-blur-[0.2px]"
+                    src="./demonslayer-assets/lowfi/bg.png"
+                    data-speedx="0.001"
+                    data-speedy="0"
+                    data-speedz="0.1"
+                    data-rotate="0"
+                />
 
-        <!-- <section class="h-screen imagesContainer"></section> -->
+                <!-- Put text in a container so i can properly align it in the center -->
+                <!-- without the container, text alignment is overwritten by styling added through javascript, messing up the layout -->
+                <div
+                    class="absolute z-10 w-full h-full textContainer parallax"
+                    data-speedx="0.01"
+                    data-speedy="0.01"
+                    data-speedz="0.15"
+                    data-rotate="0.15"
+                >
+                    <h1
+                        class="font-bloodCrow xl:text-[11rem] absolute md:text-9xl text-8xl bonus left-1/4 top-3 -translate-x-1/4"
+                    >
+                        DemoN
+                        <br />
+                        SlayeR
+                    </h1>
+                </div>
+                <img
+                    class="z-20 parallax backdrop-blur-[0.2px]"
+                    src="./demonslayer-assets/lowfi/trees.png"
+                    data-speedx="0.02"
+                    data-speedy="0.02"
+                    data-speedz="0.2"
+                    data-rotate="0.2"
+                />
+                <img
+                    class="z-30 parallax"
+                    src="./demonslayer-assets/lowfi/tanjiro_nez.png"
+                    data-speedx="0.03"
+                    data-speedy="0.03"
+                    data-speedz="0.3"
+                    data-rotate="0.3"
+                />
+            </section>
+
+            <!-- One Piece 2 -->
+
+            <section
+                class="relative h-screen overflow-hidden imagesContainer cont3"
+                id="cont3"
+            >
+                <img
+                    class="z-0 parallax"
+                    src="./assets/one piece2-assets/lowfi/bg.png"
+                    data-speedx="0.001"
+                    data-speedy="0"
+                    data-speedz="0.1"
+                    data-rotate="0"
+                />
+                <img
+                    class="z-10 parallax"
+                    src="./assets/one piece2-assets/lowfi/Layer 5.png"
+                    data-speedx="0.005"
+                    data-speedy="0.007"
+                    data-speedz="0.08"
+                    data-rotate="0.1"
+                />
+                <!-- Put text in a container so i can properly align it in the center -->
+                <!-- without the container, text alignment is overwritten by styling added through javascript, messing up the layout -->
+                <div
+                    class="absolute z-10 w-full h-full textContainer parallax"
+                    data-speedx="0.02"
+                    data-speedy="0.02"
+                    data-speedz="0.2"
+                    data-rotate="0.2"
+                >
+                    <h1
+                        class="font-onePiece xl:text-[12rem] absolute md:text-9xl text-8xl bonus left-1/2 top-3 -translate-x-1/2"
+                    >
+                        One Piece
+                    </h1>
+                </div>
+                <img
+                    class="z-20 parallax backdrop-blur-[0.2px]"
+                    src="./assets/one piece2-assets/lowfi/Layer 4.png"
+                    data-speedx="0.006"
+                    data-speedy="0.008"
+                    data-speedz="0.1"
+                    data-rotate="0.1"
+                />
+                <img
+                    class="z-20 parallax"
+                    src="./assets/one piece2-assets/lowfi/Layer 3.png"
+                    data-speedx="0.008"
+                    data-speedy="0.01"
+                    data-speedz="0.15"
+                    data-rotate="0.2"
+                />
+
+                <img
+                    class="z-30 parallax backdrop-blur-[0.2px]"
+                    src="./assets/one piece2-assets/lowfi/Layer 2.png"
+                    data-speedx="0.01"
+                    data-speedy="0.03"
+                    data-speedz="0.2"
+                    data-rotate="0.2"
+                />
+                <img
+                    class="z-40 parallax backdrop-blur-[0.2px]"
+                    src="./assets/one piece2-assets/lowfi/Layer 1.png"
+                    data-speedx="0.04"
+                    data-speedy="0.05"
+                    data-speedz="0.5"
+                    data-rotate="0.5"
+                />
+                <!--  <img
+                    class="z-50 parallax"
+                    src="./assets/one piece-assets/lowfi/lufffy.png"
+                    data-speedx="0.04"
+                    data-speedy="0.05"
+                    data-speedz="0.5"
+                    data-rotate="0.5"
+                /> -->
+
+                <div
+                    class="overlay h-full w-full bg-opacity-[0.05] bg-blue-900 z-[60] absolute"
+                ></div>
+            </section>
+        </div>
     </body>
 </html>

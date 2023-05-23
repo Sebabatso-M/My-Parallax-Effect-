@@ -3,13 +3,23 @@
 @tailwind utilities;
 
 img {
-    @apply absolute w-full h-full duration-500 pointer-events-none;
+    @apply absolute object-cover w-full h-full duration-500 pointer-events-none;
     transition-timing-function: cubic-bezier(0.1, 0.66, 0.28, 0.86);
+}
+
+.cont {
+    scroll-snap-type: y mandatory;
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 section {
     perspective: 2300px;
     @apply bg-blue-900 bg-opacity-70;
+    /* scroll-snap-align: start; */
+    min-width: 100%;
+    scroll-snap-align: start;
 }
 
 body {
@@ -37,3 +47,13 @@ h1.bonus {
     font-family: onePiece;
     src: url('../assets/one\ piece\ font.ttf');
 }
+
+/* html {
+    scroll-snap-type: y proximity;
+    scroll-behavior: smooth;
+} */
+
+/* .pin-spacer {
+    max-height: 400vh;
+    overflow: hidden;
+} */
